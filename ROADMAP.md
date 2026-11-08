@@ -58,7 +58,7 @@ Each phase is one branch and one pull request.
 - [x] The foot port: `[colors-dark]` or `[colors-light]` by the flavor's scheme, with the sixteen terminal colors, cursor, selection, links, search box and jump labels.
 - [x] Tests on every generated file: color formats, no forbidden keys, one theme per flavor, the palette version in the header, contrast of the text pairs; and `foot --check-config` on each theme where foot is installed.
 - [x] The test workflow: type check, tests and the generated-files check.
-- [ ] Add the test workflow to the required checks of the `main` ruleset, once it has run on this pull request.
+- [x] Add the test workflow to the required checks of the `main` ruleset, once it has run on this pull request.
 
 ### Phase 2: mango
 
