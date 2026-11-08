@@ -37,6 +37,8 @@ This document is the brief for whoever changes the ports. Read it before changin
 | Versioning | A palette update that changes values is a minor release; a new port or accent layer is a minor release; renaming or removing a generated file or a color name a theme defines is a major release. Before `1.0.0`, each level moves one place to the right, as in the core | The paths and names of the generated files are this repository's public API |
 | Template tool | TypeScript run directly by Node, not Catppuccin's whiskers | Whiskers' Tera templates cannot be type-checked against the palette |
 | Contrast | Each template's text pairs (foreground on background, selection, cursor text) are tested to reach 4.5:1, with the WCAG 2 formula written in the tests | The core guarantees its documented pairs; a port that pairs other colors checks its own |
+| foot selection | `accent-on-pane` on `accent-pane`, not a raised stone | Against the surface both are close in lightness (1.05 and 1.14 in Lauds); the pane's hue is what sets the selection apart. To be revisited on a real desktop |
+| Generated files | The generator owns `themes/` and `accents/` of every application and `ports.json`; a file there it no longer writes is stale, and `--check` reports it | A renamed theme cannot linger in the repository after its template stopped writing it |
 | Release age | pnpm waits a day before installing any new version, strictly, with the palette as the only exception, and refuses a version whose provenance was downgraded | The palette is ours and published with provenance; every other dependency keeps the wait |
 
 ## Phases
@@ -52,10 +54,11 @@ Each phase is one branch and one pull request.
 
 ### Phase 1: The generator and foot
 
-- [ ] The `Port` type, the generator with `--check`, the `ini` serializer and the manifest.
-- [ ] The foot port: `[colors-dark]` or `[colors-light]` by the flavor's scheme, with the sixteen terminal colors, cursor, selection, links, search box and jump labels.
-- [ ] Tests on every generated file: color formats, no forbidden keys, one theme per flavor, the palette version in the header, contrast of the text pairs; and `foot --check-config` on each theme where foot is installed.
-- [ ] The test workflow: type check, tests and the generated-files check.
+- [x] The `Port` type, the generator with `--check`, the `ini` serializer and the manifest.
+- [x] The foot port: `[colors-dark]` or `[colors-light]` by the flavor's scheme, with the sixteen terminal colors, cursor, selection, links, search box and jump labels.
+- [x] Tests on every generated file: color formats, no forbidden keys, one theme per flavor, the palette version in the header, contrast of the text pairs; and `foot --check-config` on each theme where foot is installed.
+- [x] The test workflow: type check, tests and the generated-files check.
+- [ ] Add the test workflow to the required checks of the `main` ruleset, once it has run on this pull request.
 
 ### Phase 2: mango
 
@@ -82,8 +85,11 @@ From the applications of the same desktop: fuzzel, mako, swaylock, GTK 3 and 4, 
 ## Open decisions
 
 - **How the site reads the list of ports**: from `ports.json` attached to each release, or from a package published as `@sanctuary-ds/ports`. Decided with the site's ports milestone.
-- **An accent layer for foot**: only if a later `include=` overrides keys of an earlier one; to be checked.
-- **Light and dark in one foot file**: foot can hold `[colors-light]` and `[colors-dark]` together and switch between them. A file pairing Lauds with a dark flavor may follow the first release.
+- **An accent layer for foot**: possible, since a later `include=` overrides the keys of an earlier one (checked on foot 1.28 by layering each dark flavor over Vespers). Not needed while the accent only colors the cursor, the selection and the links.
+
+## Notes for the core
+
+- `ansi-bright-black` reaches 2.7:1 to 3.2:1 on `surface` in the dark flavors. That is usual for a dim terminal color (shell suggestions, faded comments), but below the 4.5:1 of text; worth stating in the core's accessibility notes if they promise 4.5:1 for terminal colors.
 
 ## Working agreement
 
