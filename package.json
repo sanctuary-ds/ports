@@ -1,0 +1,33 @@
+{
+  "name": "@sanctuary-ds/ports",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Sanctuary themes for desktop applications, generated from the palette.",
+  "license": "MIT",
+  "author": {
+    "name": "Anthony Portugal",
+    "url": "https://anthonyportugal.github.io"
+  },
+  "homepage": "https://sanctuary-ds.github.io/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanctuary-ds/ports.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sanctuary-ds/ports/issues"
+  },
+  "type": "module",
+  "packageManager": "pnpm@12.8.1",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^26.0.0",
+      "onFail": "download"
+    }
+  },
+  "devDependencies": {
+    "@sanctuary-ds/tokens": "0.3.1",
+    "@types/node": "26.6.6",
+    "typescript": "7.0.2"
+  }
+}
