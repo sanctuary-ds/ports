@@ -1,0 +1,22 @@
+{
+  "palette": {
+    "name": "@sanctuary-ds/tokens",
+    "version": "0.3.1"
+  },
+  "ports": [
+    {
+      "id": "foot",
+      "name": "foot",
+      "homepage": "https://codeberg.org/dnkl/foot",
+      "category": "terminal",
+      "minVersion": "1.26.0",
+      "themes": {
+        "lauds": "apps/foot/themes/sanctuary-lauds.ini",
+        "vespers": "apps/foot/themes/sanctuary-vespers.ini",
+        "compline": "apps/foot/themes/sanctuary-compline.ini",
+        "matins": "apps/foot/themes/sanctuary-matins.ini"
+      },
+      "accents": []
+    }
+  ]
+}

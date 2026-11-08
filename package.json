@@ -25,6 +25,12 @@
       "onFail": "download"
     }
   },
+  "scripts": {
+    "generate": "node src/generate.ts",
+    "check": "node src/generate.ts --check",
+    "test": "node --test \"test/*.test.ts\"",
+    "typecheck": "tsc"
+  },
   "devDependencies": {
     "@sanctuary-ds/tokens": "0.3.1",
     "@types/node": "26.6.6",
