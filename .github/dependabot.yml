@@ -10,6 +10,10 @@ updates:
     groups:
       actions:
         patterns: ['*']
+    # Waits a week after a release, which gives a compromised or broken version time to be
+    # caught and pulled before it runs here.
+    cooldown:
+      default-days: 7
     commit-message:
       prefix: ci
 
@@ -22,7 +26,9 @@ updates:
     allow:
       - dependency-name: '@sanctuary-ds/tokens'
     # Waits two days after a release, which gives a bad release time to be caught and pulled.
+    # Shorter than the actions' week on purpose: the palette is ours, published from CI with
+    # provenance, and pnpm's trustPolicy refuses a release that lost it.
     cooldown:
-      default-days: 2
+      default-days: 2 # zizmor: ignore[dependabot-cooldown]
     commit-message:
       prefix: chore(deps)
