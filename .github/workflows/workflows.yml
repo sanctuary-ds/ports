@@ -1,0 +1,46 @@
+name: Workflows
+
+# Audits the workflows themselves: actionlint checks their syntax and expressions, zizmor their
+# security (unpinned actions, excessive permissions, template injection, leaked credentials).
+# They run on every pull request, not only on those that touch .github: both are required
+# checks, and a required check that never runs leaves the pull request waiting forever.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Read-only token: both tools only read the repository and print what they find.
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  actionlint:
+    name: Lint the workflows
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # The official image, pinned to the digest of 1.7.12.
+      - uses: docker://rhysd/actionlint@sha256:b1934ee5f1c509618f2508e6eb47ee0d3520686341fec936f3b79331f9315667 # 1.7.12
+        with:
+          args: -color
+
+  zizmor:
+    name: Audit the workflows
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # Prints the findings and fails on them, instead of uploading them to code scanning,
+      # which would need the security-events write permission.
+      - uses: zizmorcore/zizmor-action@45d7276c9ca790aabd705e31ca99c6185c3e76dd # v0.8.1
+        with:
+          advanced-security: false

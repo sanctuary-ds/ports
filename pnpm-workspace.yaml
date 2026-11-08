@@ -1,0 +1,14 @@
+# pnpm rejects any version published less than a day ago (minimumReleaseAge). The palette is
+# ours, published from CI with trusted publishing and provenance, so a new release of it can be
+# installed the day it ships. Every other package keeps the wait.
+#
+# Strict: without it, pnpm adds a package that is too young to minimumReleaseAgeExclude on
+# its own and installs it. Strict fails the install instead, so every exception is written
+# here by hand and reviewed.
+minimumReleaseAgeStrict: true
+minimumReleaseAgeExclude:
+  - '@sanctuary-ds/tokens'
+
+# Refuses a version whose publishing is less trusted than an earlier one, such as a release
+# that lost its provenance: the sign of a package published from outside its CI.
+trustPolicy: no-downgrade
