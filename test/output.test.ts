@@ -19,10 +19,9 @@ test('every port has a unique id', () => {
 
 test('every port writes one theme per flavor', () => {
   for (const port of ports) {
-    for (const flavor of ctx.flavors) {
-      const theme = themes.filter(([path]) => path.startsWith(`apps/${port.id}/themes/`) && path.includes(flavor.id));
-      assert.equal(theme.length, 1, `${port.id} ${flavor.id}`);
-    }
+    // A theme is a file with a flavor and no pigment; accent layers carry a pigment.
+    const flavorsThemed = port.files(ctx).filter((file) => file.pigment === undefined).map((file) => file.flavor);
+    assert.deepEqual(flavorsThemed, ctx.flavors.map((flavor) => flavor.id), port.id);
   }
 });
 
