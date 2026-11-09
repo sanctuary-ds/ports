@@ -38,6 +38,7 @@ This document is the brief for whoever changes the ports. Read it before changin
 | Template tool | TypeScript run directly by Node, not Catppuccin's whiskers | Whiskers' Tera templates cannot be type-checked against the palette |
 | Contrast | Each template's text pairs (foreground on background, selection, cursor text) are tested to reach 4.5:1, with the WCAG 2 formula written in the tests | The core guarantees its documented pairs; a port that pairs other colors checks its own |
 | foot selection | `accent-on-pane` on `accent-pane`, not a raised stone | Against the surface both are close in lightness (1.05 and 1.14 in Lauds); the pane's hue is what sets the selection apart. To be revisited on a real desktop |
+| mango window states | Maximized, scratchpad, global and overlay borders take `success`, `info`, `glass-amethyst` and `glass-rose`, colors no flavor uses for its default accent | A state must not look like the focused window. Matins' accent is viridian, so overlay could not be viridian |
 | Generated files | The generator owns `themes/` and `accents/` of every application and `ports.json`; a file there it no longer writes is stale, and `--check` reports it | A renamed theme cannot linger in the repository after its template stopped writing it |
 | Release age | pnpm waits a day before installing any new version, strictly, with the palette as the only exception, and refuses a version whose provenance was downgraded | The palette is ours and published with provenance; every other dependency keeps the wait |
 
@@ -62,9 +63,9 @@ Each phase is one branch and one pull request.
 
 ### Phase 2: mango
 
-- [ ] The `mango-conf` serializer (`0xRRGGBBAA`).
-- [ ] The mango port: border, focus, urgent, scratchpad, global, overlay, root and shadow colors, with the key names checked against mango's documentation.
-- [ ] The accent layer, one file per flavor and pigment.
+- [x] The `mango-conf` serializer (`0xRRGGBBAA`).
+- [x] The mango port: border, focus, urgent, scratchpad, global, overlay, root and shadow colors, and the bars and labels mango draws text on, with every key checked by `mango -p` on mango 0.18.4.
+- [x] The accent layer, one file per flavor and pigment.
 
 ### Phase 3: waybar
 
@@ -75,7 +76,7 @@ Each phase is one branch and one pull request.
 ### Phase 4: First release (`0.1.0`)
 
 - [ ] Use the three ports on a real desktop, through the dotfiles, with a preview image per port (four flavors composed with catwalk).
-- [ ] Release `0.1.0` (with `release-as` once, since release-please would otherwise start from `0.0.1`), with `ports.json` attached to the release.
+- [ ] Release `0.1.0`, the `initial-version` in the release-please configuration (without it, its first release would be `1.0.0`), with `ports.json` attached to the release.
 - [ ] In the other repositories: record the decisions above that cross repositories, correct the site's guide to writing a port, and mark the core's `1.0.0` criterion as met.
 
 ### Next
@@ -90,6 +91,10 @@ From the applications of the same desktop: fuzzel, mako, swaylock, GTK 3 and 4, 
 ## Notes for the core
 
 - `ansi-bright-black` reaches 2.7:1 to 3.2:1 on `surface` in the dark flavors. That is usual for a dim terminal color (shell suggestions, faded comments), but below the 4.5:1 of text; worth stating in the core's accessibility notes if they promise 4.5:1 for terminal colors.
+
+## Notes on the applications
+
+- `mango -p` (0.18.4) prints an error inside a `source=` file but exits 0. The tests append the accent layer to the theme instead of sourcing it, and fail on any `ERROR` in the output.
 
 ## Working agreement
 
