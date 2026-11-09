@@ -82,9 +82,23 @@ context = Gtk.Window().get_style_context()
 context.add_provider(provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
 print(json.dumps({name: (lambda found: found[0] and found[1].to_string())(context.lookup_color(name)) for name in sys.argv[2:]}))
 `;
-const hasGtk = spawnSync('python3', ['-I', '-c', `${GTK.split('provider =')[0]}assert Gtk.init_check()[0]`]).status === 0;
+// Names the two reasons to skip, and only those: any other failure of this probe leaves the
+// test to run and fail with the real error, instead of passing a skip off as success.
+const PROBE = `
+import sys
+try:
+    import gi
+    gi.require_version('Gtk', '3.0')
+    from gi.repository import Gtk
+except (ImportError, ValueError):
+    sys.exit(print('GTK 3 bindings are not installed'))
+if not Gtk.init_check()[0]:
+    sys.exit(print('there is no display'))
+`;
+const probe = spawnSync('python3', ['-I', '-c', PROBE], { encoding: 'utf8' });
+const noGtk = probe.error ? 'python3 is not installed' : probe.stdout.trim() || false;
 
-test('GTK resolves every color of every theme, with every accent layer', { skip: !hasGtk && 'GTK 3 or a display is missing' }, () => {
+test('GTK resolves every color of every theme, with every accent layer', { skip: noGtk }, () => {
   const dir = mkdtempSync(join(tmpdir(), 'sanctuary-waybar-'));
   try {
     for (const flavor of ctx.flavors) {
