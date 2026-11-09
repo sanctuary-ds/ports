@@ -1,6 +1,6 @@
 {
   "name": "@sanctuary-ds/ports",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "Sanctuary themes for desktop applications, generated from the palette.",
   "license": "MIT",
