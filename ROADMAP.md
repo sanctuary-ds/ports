@@ -76,8 +76,9 @@ Each phase is one branch and one pull request.
 
 ### Phase 4: First release (`0.1.0`)
 
-- [ ] Use the three ports on a real desktop, through the dotfiles, with a preview image per port (four flavors composed with catwalk).
-- [ ] Release `0.1.0`, the `initial-version` in the release-please configuration (without it, its first release would be `1.0.0`), with `ports.json` attached to the release.
+- [ ] Use the three ports on a real desktop, through the dotfiles, pinned to a commit of `main` until there is a tag. The desktop is customized in the dotfiles repository; what the ports get wrong comes back here as an issue or a pull request.
+- [ ] A preview image per port, captured from that desktop in each flavor and composed with catwalk. Each README says under its image that the desktop is customized and the port provides only the colors.
+- [ ] Release `0.1.0` once the desktop and the previews are done: the `initial-version` in the release-please configuration (without it, its first release would be `1.0.0`), with `ports.json` attached to the release. The dotfiles then move from the pinned commit to the tag.
 - [ ] In the other repositories: record the decisions above that cross repositories, correct the site's guide to writing a port, and mark the core's `1.0.0` criterion as met.
 
 ### Next
