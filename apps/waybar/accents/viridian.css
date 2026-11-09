@@ -1,0 +1,11 @@
+/* Sanctuary viridian accent for Waybar */
+/* Generated from @sanctuary-ds/tokens 0.3.1 by https://github.com/sanctuary-ds/ports */
+/* Do not edit: change apps/waybar/template.ts and regenerate. */
+/* Import it after the theme of any flavor. */
+
+@define-color san-accent @san-glass-viridian;
+@define-color san-accent-lume @san-glass-viridian-lume;
+@define-color san-accent-ink @san-glass-viridian-ink;
+@define-color san-accent-pane @san-glass-viridian-pane;
+@define-color san-accent-on @san-glass-viridian-on;
+@define-color san-accent-on-pane @san-glass-viridian-on-pane;

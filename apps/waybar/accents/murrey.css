@@ -1,0 +1,11 @@
+/* Sanctuary murrey accent for Waybar */
+/* Generated from @sanctuary-ds/tokens 0.3.1 by https://github.com/sanctuary-ds/ports */
+/* Do not edit: change apps/waybar/template.ts and regenerate. */
+/* Import it after the theme of any flavor. */
+
+@define-color san-accent @san-glass-murrey;
+@define-color san-accent-lume @san-glass-murrey-lume;
+@define-color san-accent-ink @san-glass-murrey-ink;
+@define-color san-accent-pane @san-glass-murrey-pane;
+@define-color san-accent-on @san-glass-murrey-on;
+@define-color san-accent-on-pane @san-glass-murrey-on-pane;

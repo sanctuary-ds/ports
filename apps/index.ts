@@ -4,5 +4,6 @@
 import type { Port } from '../src/port.ts';
 import { foot } from './foot/template.ts';
 import { mango } from './mango/template.ts';
+import { waybar } from './waybar/template.ts';
 
-export const ports: readonly Port[] = [foot, mango];
+export const ports: readonly Port[] = [foot, mango, waybar];

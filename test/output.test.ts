@@ -13,6 +13,8 @@ const themes = [...files].filter(([path]) => path !== 'ports.json');
 // repository themes: a theme holds colors and nothing else.
 const FORBIDDEN =
   /^\s*(exec|exec-once|exec_once|shell|login-shell|notify|spawn|spawn-terminal|on-click[\w-]*|on-scroll[\w-]*|command|launch|env|\w*bind\w*|source[\w-]*|include)\s*[=:]/m;
+// CSS pulls in another file with @import, which needs no = or :.
+const IMPORT = /^\s*@import\b/m;
 
 test('every port has a unique id', () => {
   const ids = ports.map((port) => port.id);
@@ -35,7 +37,10 @@ test('every generated file names the palette version it was written from', () =>
 });
 
 test('no generated file runs anything', () => {
-  for (const [path, contents] of themes) assert.doesNotMatch(contents, FORBIDDEN, path);
+  for (const [path, contents] of themes) {
+    assert.doesNotMatch(contents, FORBIDDEN, path);
+    assert.doesNotMatch(contents, IMPORT, path);
+  }
 });
 
 test('the manifest lists every port and its themes', () => {
