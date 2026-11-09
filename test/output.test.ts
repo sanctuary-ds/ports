@@ -9,8 +9,10 @@ const ctx = context();
 const files = render(ctx);
 const themes = [...files].filter(([path]) => path !== 'ports.json');
 
-// Keys that run a program or a handler in the applications this repository themes.
-const FORBIDDEN = /^\s*(exec|exec-once|exec_once|shell|login-shell|notify|spawn|spawn-terminal|on-click[\w-]*|on-scroll[\w-]*|command|launch)\s*[=:]/m;
+// Keys that run a program, bind a key or pull in another file, in the applications this
+// repository themes: a theme holds colors and nothing else.
+const FORBIDDEN =
+  /^\s*(exec|exec-once|exec_once|shell|login-shell|notify|spawn|spawn-terminal|on-click[\w-]*|on-scroll[\w-]*|command|launch|env|\w*bind\w*|source[\w-]*|include)\s*[=:]/m;
 
 test('every port has a unique id', () => {
   const ids = ports.map((port) => port.id);

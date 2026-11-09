@@ -3,5 +3,6 @@
 
 import type { Port } from '../src/port.ts';
 import { foot } from './foot/template.ts';
+import { mango } from './mango/template.ts';
 
-export const ports: readonly Port[] = [foot];
+export const ports: readonly Port[] = [foot, mango];
