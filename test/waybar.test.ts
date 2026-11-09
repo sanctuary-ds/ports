@@ -98,7 +98,8 @@ if not Gtk.init_check()[0]:
 const probe = spawnSync('python3', ['-I', '-c', PROBE], { encoding: 'utf8' });
 // ENOENT alone means there is no python3; any other spawn error is a failure to show.
 const noPython = (probe.error as NodeJS.ErrnoException | undefined)?.code === 'ENOENT';
-const noGtk = noPython ? 'python3 is not installed' : probe.stdout?.trim() || false;
+// The probe names a reason only when it exits cleanly: output from a crash is not a reason to skip.
+const noGtk = noPython ? 'python3 is not installed' : (probe.status === 0 && probe.stdout.trim()) || false;
 
 test('GTK resolves every color of every theme, with every accent layer', { skip: noGtk }, () => {
   const dir = mkdtempSync(join(tmpdir(), 'sanctuary-waybar-'));
