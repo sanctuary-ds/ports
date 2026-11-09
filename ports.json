@@ -17,6 +17,261 @@
         "matins": "apps/foot/themes/sanctuary-matins.ini"
       },
       "accents": []
+    },
+    {
+      "id": "mango",
+      "name": "mango",
+      "homepage": "https://mangowm.github.io",
+      "category": "window-manager",
+      "minVersion": "0.18.4",
+      "themes": {
+        "lauds": "apps/mango/themes/sanctuary-lauds.conf",
+        "vespers": "apps/mango/themes/sanctuary-vespers.conf",
+        "compline": "apps/mango/themes/sanctuary-compline.conf",
+        "matins": "apps/mango/themes/sanctuary-matins.conf"
+      },
+      "accents": [
+        {
+          "flavor": "lauds",
+          "pigment": "ruby",
+          "path": "apps/mango/accents/lauds/ruby.conf"
+        },
+        {
+          "flavor": "lauds",
+          "pigment": "ember",
+          "path": "apps/mango/accents/lauds/ember.conf"
+        },
+        {
+          "flavor": "lauds",
+          "pigment": "amber",
+          "path": "apps/mango/accents/lauds/amber.conf"
+        },
+        {
+          "flavor": "lauds",
+          "pigment": "gilt",
+          "path": "apps/mango/accents/lauds/gilt.conf"
+        },
+        {
+          "flavor": "lauds",
+          "pigment": "verdure",
+          "path": "apps/mango/accents/lauds/verdure.conf"
+        },
+        {
+          "flavor": "lauds",
+          "pigment": "viridian",
+          "path": "apps/mango/accents/lauds/viridian.conf"
+        },
+        {
+          "flavor": "lauds",
+          "pigment": "azure",
+          "path": "apps/mango/accents/lauds/azure.conf"
+        },
+        {
+          "flavor": "lauds",
+          "pigment": "cobalt",
+          "path": "apps/mango/accents/lauds/cobalt.conf"
+        },
+        {
+          "flavor": "lauds",
+          "pigment": "indigo",
+          "path": "apps/mango/accents/lauds/indigo.conf"
+        },
+        {
+          "flavor": "lauds",
+          "pigment": "amethyst",
+          "path": "apps/mango/accents/lauds/amethyst.conf"
+        },
+        {
+          "flavor": "lauds",
+          "pigment": "murrey",
+          "path": "apps/mango/accents/lauds/murrey.conf"
+        },
+        {
+          "flavor": "lauds",
+          "pigment": "rose",
+          "path": "apps/mango/accents/lauds/rose.conf"
+        },
+        {
+          "flavor": "vespers",
+          "pigment": "ruby",
+          "path": "apps/mango/accents/vespers/ruby.conf"
+        },
+        {
+          "flavor": "vespers",
+          "pigment": "ember",
+          "path": "apps/mango/accents/vespers/ember.conf"
+        },
+        {
+          "flavor": "vespers",
+          "pigment": "amber",
+          "path": "apps/mango/accents/vespers/amber.conf"
+        },
+        {
+          "flavor": "vespers",
+          "pigment": "gilt",
+          "path": "apps/mango/accents/vespers/gilt.conf"
+        },
+        {
+          "flavor": "vespers",
+          "pigment": "verdure",
+          "path": "apps/mango/accents/vespers/verdure.conf"
+        },
+        {
+          "flavor": "vespers",
+          "pigment": "viridian",
+          "path": "apps/mango/accents/vespers/viridian.conf"
+        },
+        {
+          "flavor": "vespers",
+          "pigment": "azure",
+          "path": "apps/mango/accents/vespers/azure.conf"
+        },
+        {
+          "flavor": "vespers",
+          "pigment": "cobalt",
+          "path": "apps/mango/accents/vespers/cobalt.conf"
+        },
+        {
+          "flavor": "vespers",
+          "pigment": "indigo",
+          "path": "apps/mango/accents/vespers/indigo.conf"
+        },
+        {
+          "flavor": "vespers",
+          "pigment": "amethyst",
+          "path": "apps/mango/accents/vespers/amethyst.conf"
+        },
+        {
+          "flavor": "vespers",
+          "pigment": "murrey",
+          "path": "apps/mango/accents/vespers/murrey.conf"
+        },
+        {
+          "flavor": "vespers",
+          "pigment": "rose",
+          "path": "apps/mango/accents/vespers/rose.conf"
+        },
+        {
+          "flavor": "compline",
+          "pigment": "ruby",
+          "path": "apps/mango/accents/compline/ruby.conf"
+        },
+        {
+          "flavor": "compline",
+          "pigment": "ember",
+          "path": "apps/mango/accents/compline/ember.conf"
+        },
+        {
+          "flavor": "compline",
+          "pigment": "amber",
+          "path": "apps/mango/accents/compline/amber.conf"
+        },
+        {
+          "flavor": "compline",
+          "pigment": "gilt",
+          "path": "apps/mango/accents/compline/gilt.conf"
+        },
+        {
+          "flavor": "compline",
+          "pigment": "verdure",
+          "path": "apps/mango/accents/compline/verdure.conf"
+        },
+        {
+          "flavor": "compline",
+          "pigment": "viridian",
+          "path": "apps/mango/accents/compline/viridian.conf"
+        },
+        {
+          "flavor": "compline",
+          "pigment": "azure",
+          "path": "apps/mango/accents/compline/azure.conf"
+        },
+        {
+          "flavor": "compline",
+          "pigment": "cobalt",
+          "path": "apps/mango/accents/compline/cobalt.conf"
+        },
+        {
+          "flavor": "compline",
+          "pigment": "indigo",
+          "path": "apps/mango/accents/compline/indigo.conf"
+        },
+        {
+          "flavor": "compline",
+          "pigment": "amethyst",
+          "path": "apps/mango/accents/compline/amethyst.conf"
+        },
+        {
+          "flavor": "compline",
+          "pigment": "murrey",
+          "path": "apps/mango/accents/compline/murrey.conf"
+        },
+        {
+          "flavor": "compline",
+          "pigment": "rose",
+          "path": "apps/mango/accents/compline/rose.conf"
+        },
+        {
+          "flavor": "matins",
+          "pigment": "ruby",
+          "path": "apps/mango/accents/matins/ruby.conf"
+        },
+        {
+          "flavor": "matins",
+          "pigment": "ember",
+          "path": "apps/mango/accents/matins/ember.conf"
+        },
+        {
+          "flavor": "matins",
+          "pigment": "amber",
+          "path": "apps/mango/accents/matins/amber.conf"
+        },
+        {
+          "flavor": "matins",
+          "pigment": "gilt",
+          "path": "apps/mango/accents/matins/gilt.conf"
+        },
+        {
+          "flavor": "matins",
+          "pigment": "verdure",
+          "path": "apps/mango/accents/matins/verdure.conf"
+        },
+        {
+          "flavor": "matins",
+          "pigment": "viridian",
+          "path": "apps/mango/accents/matins/viridian.conf"
+        },
+        {
+          "flavor": "matins",
+          "pigment": "azure",
+          "path": "apps/mango/accents/matins/azure.conf"
+        },
+        {
+          "flavor": "matins",
+          "pigment": "cobalt",
+          "path": "apps/mango/accents/matins/cobalt.conf"
+        },
+        {
+          "flavor": "matins",
+          "pigment": "indigo",
+          "path": "apps/mango/accents/matins/indigo.conf"
+        },
+        {
+          "flavor": "matins",
+          "pigment": "amethyst",
+          "path": "apps/mango/accents/matins/amethyst.conf"
+        },
+        {
+          "flavor": "matins",
+          "pigment": "murrey",
+          "path": "apps/mango/accents/matins/murrey.conf"
+        },
+        {
+          "flavor": "matins",
+          "pigment": "rose",
+          "path": "apps/mango/accents/matins/rose.conf"
+        }
+      ]
     }
   ]
 }

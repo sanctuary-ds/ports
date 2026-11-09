@@ -14,10 +14,14 @@ export interface FlavorContext {
   accent: PigmentId;
   /** A color of the flavor. A name the palette does not have fails the type check. */
   color(name: ColorName): Hex;
+  /** The opacity the palette gives a color, from 0 to 1; 1 for an opaque one. */
+  alpha(name: ColorName): number;
 }
 
 export interface PortContext {
   flavors: readonly FlavorContext[];
+  /** Every pigment, in the palette's order: the choices of an accent layer. */
+  pigments: readonly PigmentId[];
   /** The palette package the themes are generated from. */
   palette: { name: string; version: string };
 }
@@ -45,10 +49,10 @@ export interface Port {
   files(ctx: PortContext): GeneratedFile[];
 }
 
-/** The comment every theme starts with. */
-export function notice(port: Port, flavor: FlavorContext, ctx: PortContext): string[] {
+/** The comment every generated file starts with. `detail` names what the file is, past the flavor. */
+export function notice(port: Port, flavor: FlavorContext, ctx: PortContext, detail?: string): string[] {
   return [
-    `Sanctuary ${flavor.name} (${flavor.hour}) for ${port.name}`,
+    `Sanctuary ${flavor.name} (${flavor.hour}) for ${port.name}${detail ? `, ${detail}` : ''}`,
     `Generated from ${ctx.palette.name} ${ctx.palette.version} by https://github.com/sanctuary-ds/ports`,
     `Do not edit: change apps/${port.id}/template.ts and regenerate.`,
   ];
