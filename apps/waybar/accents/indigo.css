@@ -1,0 +1,11 @@
+/* Sanctuary indigo accent for Waybar */
+/* Generated from @sanctuary-ds/tokens 0.3.1 by https://github.com/sanctuary-ds/ports */
+/* Do not edit: change apps/waybar/template.ts and regenerate. */
+/* Import it after the theme of any flavor. */
+
+@define-color san-accent @san-glass-indigo;
+@define-color san-accent-lume @san-glass-indigo-lume;
+@define-color san-accent-ink @san-glass-indigo-ink;
+@define-color san-accent-pane @san-glass-indigo-pane;
+@define-color san-accent-on @san-glass-indigo-on;
+@define-color san-accent-on-pane @san-glass-indigo-on-pane;

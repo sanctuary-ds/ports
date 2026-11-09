@@ -51,8 +51,13 @@ export interface Port {
 
 /** The comment every generated file starts with. `detail` names what the file is, past the flavor. */
 export function notice(port: Port, flavor: FlavorContext, ctx: PortContext, detail?: string): string[] {
+  return banner(port, ctx, `Sanctuary ${flavor.name} (${flavor.hour})`, detail);
+}
+
+/** The same comment for a file that is not made for one flavor, such as a shared accent layer. */
+export function banner(port: Port, ctx: PortContext, subject: string, detail?: string): string[] {
   return [
-    `Sanctuary ${flavor.name} (${flavor.hour}) for ${port.name}${detail ? `, ${detail}` : ''}`,
+    `${subject} for ${port.name}${detail ? `, ${detail}` : ''}`,
     `Generated from ${ctx.palette.name} ${ctx.palette.version} by https://github.com/sanctuary-ds/ports`,
     `Do not edit: change apps/${port.id}/template.ts and regenerate.`,
   ];

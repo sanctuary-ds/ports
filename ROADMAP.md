@@ -39,6 +39,7 @@ This document is the brief for whoever changes the ports. Read it before changin
 | Contrast | Each template's text pairs (foreground on background, selection, cursor text) are tested to reach 4.5:1, with the WCAG 2 formula written in the tests | The core guarantees its documented pairs; a port that pairs other colors checks its own |
 | foot selection | `accent-on-pane` on `accent-pane`, not a raised stone | Against the surface both are close in lightness (1.05 and 1.14 in Lauds); the pane's hue is what sets the selection apart. To be revisited on a real desktop |
 | mango window states | Maximized, scratchpad, global and overlay borders take `success`, `info`, `glass-amethyst` and `glass-rose`, colors no flavor uses for its default accent | A state must not look like the focused window. Matins' accent is viridian, so overlay could not be viridian |
+| waybar accent layer | One file per pigment, shared by every flavor, that points `san-accent*` at `@san-glass-<pigment>*` | GTK colors can point at each other and every theme defines every glass, so 12 files do the work of 48 |
 | Generated files | The generator owns `themes/` and `accents/` of every application and `ports.json`; a file there it no longer writes is stale, and `--check` reports it | A renamed theme cannot linger in the repository after its template stopped writing it |
 | Release age | pnpm waits a day before installing any new version, strictly, with the palette as the only exception, and refuses a version whose provenance was downgraded | The palette is ours and published with provenance; every other dependency keeps the wait |
 
@@ -69,14 +70,15 @@ Each phase is one branch and one pull request.
 
 ### Phase 3: waybar
 
-- [ ] The `gtk-css` serializer (`@define-color`).
-- [ ] The waybar port: the semantic colors (stone, ink, lead, accent, status) and the twelve pigments, named `san-*`.
-- [ ] The accent layer, one file per pigment.
+- [x] The `gtk-css` serializer (`@define-color`), with `rgba()` for the translucent colors.
+- [x] The waybar port: the semantic colors (stone, ink, lead, accent, status) and the twelve pigments, named `san-*`, checked with GTK 3 on Waybar 0.15.0.
+- [x] The accent layer, one file per pigment.
 
 ### Phase 4: First release (`0.1.0`)
 
-- [ ] Use the three ports on a real desktop, through the dotfiles, with a preview image per port (four flavors composed with catwalk).
-- [ ] Release `0.1.0`, the `initial-version` in the release-please configuration (without it, its first release would be `1.0.0`), with `ports.json` attached to the release.
+- [ ] Use the three ports on a real desktop, through the dotfiles, pinned to a commit of `main` until there is a tag. The desktop is customized in the dotfiles repository; what the ports get wrong comes back here as an issue or a pull request.
+- [ ] A preview image per port, captured from that desktop in each flavor and composed with catwalk. Each README says under its image that the desktop is customized and the port provides only the colors.
+- [ ] Release `0.1.0` once the desktop and the previews are done: the `initial-version` in the release-please configuration (without it, its first release would be `1.0.0`), with `ports.json` attached to the release. The dotfiles then move from the pinned commit to the tag.
 - [ ] In the other repositories: record the decisions above that cross repositories, correct the site's guide to writing a port, and mark the core's `1.0.0` criterion as met.
 
 ### Next
@@ -95,6 +97,8 @@ From the applications of the same desktop: fuzzel, mako, swaylock, GTK 3 and 4, 
 ## Notes on the applications
 
 - `mango -p` (0.18.4) prints an error inside a `source=` file but exits 0. The tests append the accent layer to the theme instead of sourcing it, and fail on any `ERROR` in the output.
+- GTK 3, and so Waybar, says nothing about a color reference to a name no file defines: the rule is just not drawn. The tests check that every name a layer points at is defined, and resolve every color through GTK where it is installed.
+- Waybar 0.16.0 is still GTK 3. Its GTK 4 branch will need a look: GTK 4.16 deprecates `@define-color` in favor of CSS custom properties.
 
 ## Working agreement
 

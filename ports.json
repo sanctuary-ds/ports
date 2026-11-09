@@ -272,6 +272,69 @@
           "path": "apps/mango/accents/matins/rose.conf"
         }
       ]
+    },
+    {
+      "id": "waybar",
+      "name": "Waybar",
+      "homepage": "https://github.com/Alexays/Waybar",
+      "category": "status-bar",
+      "minVersion": "0.15.0",
+      "themes": {
+        "lauds": "apps/waybar/themes/sanctuary-lauds.css",
+        "vespers": "apps/waybar/themes/sanctuary-vespers.css",
+        "compline": "apps/waybar/themes/sanctuary-compline.css",
+        "matins": "apps/waybar/themes/sanctuary-matins.css"
+      },
+      "accents": [
+        {
+          "pigment": "ruby",
+          "path": "apps/waybar/accents/ruby.css"
+        },
+        {
+          "pigment": "ember",
+          "path": "apps/waybar/accents/ember.css"
+        },
+        {
+          "pigment": "amber",
+          "path": "apps/waybar/accents/amber.css"
+        },
+        {
+          "pigment": "gilt",
+          "path": "apps/waybar/accents/gilt.css"
+        },
+        {
+          "pigment": "verdure",
+          "path": "apps/waybar/accents/verdure.css"
+        },
+        {
+          "pigment": "viridian",
+          "path": "apps/waybar/accents/viridian.css"
+        },
+        {
+          "pigment": "azure",
+          "path": "apps/waybar/accents/azure.css"
+        },
+        {
+          "pigment": "cobalt",
+          "path": "apps/waybar/accents/cobalt.css"
+        },
+        {
+          "pigment": "indigo",
+          "path": "apps/waybar/accents/indigo.css"
+        },
+        {
+          "pigment": "amethyst",
+          "path": "apps/waybar/accents/amethyst.css"
+        },
+        {
+          "pigment": "murrey",
+          "path": "apps/waybar/accents/murrey.css"
+        },
+        {
+          "pigment": "rose",
+          "path": "apps/waybar/accents/rose.css"
+        }
+      ]
     }
   ]
 }
