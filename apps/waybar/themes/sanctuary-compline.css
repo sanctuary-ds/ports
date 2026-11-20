@@ -1,25 +1,25 @@
 /* Sanctuary Compline (Night) for Waybar */
-/* Generated from @sanctuary-ds/tokens 0.3.1 by https://github.com/sanctuary-ds/ports */
+/* Generated from @sanctuary-ds/tokens 0.3.2 by https://github.com/sanctuary-ds/ports */
 /* Do not edit: change apps/waybar/template.ts and regenerate. */
 
-@define-color san-surface-sunken #070b14;
-@define-color san-surface #0d111b;
-@define-color san-surface-raised-1 #141923;
-@define-color san-surface-raised-2 #1b202b;
-@define-color san-surface-raised-3 #222833;
-@define-color san-surface-raised-4 #2b303c;
+@define-color san-surface-sunken #090b10;
+@define-color san-surface #0f1217;
+@define-color san-surface-raised-1 #16191e;
+@define-color san-surface-raised-2 #1d2026;
+@define-color san-surface-raised-3 #25282e;
+@define-color san-surface-raised-4 #2d3037;
 @define-color san-surface-inverse #eee7d9;
 @define-color san-text #eee7d9;
 @define-color san-text-muted #bdb7a9;
 @define-color san-text-subtle #9e988b;
 @define-color san-text-disabled #605a4e;
-@define-color san-text-inverse #0d111b;
-@define-color san-lead-soft #232a39;
-@define-color san-lead #363d4d;
-@define-color san-lead-strong #5b6374;
-@define-color san-lead-came #000108;
-@define-color san-umbra-key rgba(0, 0, 2, 0.6);
-@define-color san-umbra-ambient rgba(0, 0, 2, 0.4);
+@define-color san-text-inverse #0f1217;
+@define-color san-lead-soft #262a32;
+@define-color san-lead #393d46;
+@define-color san-lead-strong #5f636c;
+@define-color san-lead-came #010204;
+@define-color san-umbra-key rgba(0, 0, 1, 0.6);
+@define-color san-umbra-ambient rgba(0, 0, 1, 0.4);
 @define-color san-scrim rgba(0, 0, 0, 0.6);
 @define-color san-glass-ruby #fca59f;
 @define-color san-glass-ruby-lume #fdcbc7;
