@@ -167,8 +167,8 @@ importers:
   .:
     devDependencies:
       '@sanctuary-ds/tokens':
-        specifier: 0.3.2
-        version: 0.3.2
+        specifier: 0.4.0
+        version: 0.4.0
       '@types/node':
         specifier: 26.6.6
         version: 26.6.6
@@ -181,8 +181,8 @@ importers:
 
 packages:
 
-  '@sanctuary-ds/tokens@0.3.2':
-    resolution: {integrity: sha512-cdDJ2yfIpnvyuAAzX+zEwhu53By2EjLNAti5jDgWGE0brA6RCOmpIQn2MFu9ccg9Pv7iI24uSucAo3CDVAOVkQ==}
+  '@sanctuary-ds/tokens@0.4.0':
+    resolution: {integrity: sha512-FDba+s9mYjmL+VBYS6B2qlS1Lebe8JRniC9pgE3d0DbuqVQfbHkRcw18ylWrKSmmm/Mf5JQKwFWI2+qaZUE2Xw==}
 
   '@types/node@26.6.6':
     resolution: {integrity: sha512-MzQj+8Kx3XI40OmUAE6Qoh58ZMNstNNMwn2nfd3qWsfe7nDNSqJNzes4njhz6AHwrSHOffSLwXU6yb474Q4aog==}
@@ -449,7 +449,7 @@ packages:
 
 snapshots:
 
-  '@sanctuary-ds/tokens@0.3.2': {}
+  '@sanctuary-ds/tokens@0.4.0': {}
 
   '@types/node@26.6.6':
     dependencies:
